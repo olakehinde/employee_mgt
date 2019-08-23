@@ -9,5 +9,6 @@
 
 ## About Employee Management App
 
-Employee Management App is just a fun way of me plpaying around the new Laravel 5.8 framework to practice a simple CRUD operation on an Employee.
+Employee Management App is just a fun way of me playing around the new Laravel 5.8 framework,
+Employee Management App is a simple CRUD application operation on an Employee.
 Since we're here talking about Emplyee... it is obvious that an employee has to belong to an employer/organization or Company.
