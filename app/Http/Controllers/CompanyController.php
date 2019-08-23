@@ -24,7 +24,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('company.create');
     }
 
     /**
@@ -35,7 +35,11 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate request
+
+        //save data to db
+
+        //redirect to index with flash message
     }
 
     /**
