@@ -17,7 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('address');
-            $table->string('email')-unique();
+            $table->string('email')->unique();
             $table->string('sector')->nullable();
             $table->softDeletes();
             $table->timestamps();
