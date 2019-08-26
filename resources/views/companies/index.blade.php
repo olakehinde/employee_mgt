@@ -30,11 +30,11 @@
 					<td>{{ $company->email }}</td>
 					<td>{{ is_null($company->sector) ? 'Not available' : $company->sector }}</td>
 					<td>
-						<a href="#"><span class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i> View</span>
+						<a href="#"><span class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</span>
 						</a>
-						<a href="#"><span class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i> Edit</span>
+						<a href="#"><span class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</span>
 						</a>
-						<a href="#"><span class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i> Delete</span>
+						<a href="#"><span class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</span>
 						</a>
 					</td>
 			    </tr>
