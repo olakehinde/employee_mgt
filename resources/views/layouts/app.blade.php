@@ -18,7 +18,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -78,6 +78,18 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        Copyright © <?= date('Y') ?> All Rights reserved!
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
     </div>
 </body>
 </html>

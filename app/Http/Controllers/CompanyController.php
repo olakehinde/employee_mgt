@@ -14,7 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+        return view('companies.index')->with('companies', $companies);
     }
 
     /**
@@ -24,7 +25,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('company.create');
+        return view('companies.create');
     }
 
     /**
@@ -50,7 +51,7 @@ class CompanyController extends Controller
         
         //redirect to index with flash message
         if ($company) {
-            return redirect()->route('company.create')->with('success', 'Company is successfully created');
+            return redirect()->route('companies.create')->with('success', 'Company is successfully created');
         }
         else {
             return redirect()->back()->with('error', 'Failed to create Company');
