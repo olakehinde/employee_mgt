@@ -35,11 +35,26 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        $input = $request->all();
+
         //validate request
+        $validation = $request->validate([
+             'name' => 'required|max:255',
+             'address' => 'required',
+             'email' => 'required|email|unique:companies',
+         ]);
 
         //save data to db
-
+        $company = Company::create($validation);
+        // dd($request->all());
+        
         //redirect to index with flash message
+        if ($company) {
+            return redirect()->route('company.create')->with('success', 'Company is successfully created');
+        }
+        else {
+            return redirect()->back()->with('error', 'Failed to create Company');
+        }
     }
 
     /**
