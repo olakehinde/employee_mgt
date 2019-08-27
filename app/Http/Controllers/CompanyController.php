@@ -15,7 +15,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-        return view('companies.index')->with('companies', $companies);
+        return view('companies.index', ['companies' => $companies]);
     }
 
     /**
@@ -43,7 +43,7 @@ class CompanyController extends Controller
              'name' => 'required|max:255',
              'address' => 'required',
              'email' => 'required|email|unique:companies',
-             'sector' => 'string',
+             'sector' => 'string|nullable',
          ]);
 
         //save data to db
@@ -52,7 +52,7 @@ class CompanyController extends Controller
         
         //redirect to index with flash message
         if ($company) {
-            return redirect()->route('companies.create')->with('success', 'Company is successfully created');
+            return redirect()->route('companies.index')->with('success', 'Company is successfully created');
         }
         else {
             return redirect()->back()->with('error', 'Failed to create Company');
@@ -131,6 +131,12 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        // dd($company);
+        $deleted = $company->delete();
+        if ($deleted) {
+            return view('companies.index')->with('message', 'Company deleted Successfully');
+        }
+        return redirect()->back()->with('error', 'Operation failed!!!');
+        
     }
 }
