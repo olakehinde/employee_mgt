@@ -43,6 +43,7 @@ class CompanyController extends Controller
              'name' => 'required|max:255',
              'address' => 'required',
              'email' => 'required|email|unique:companies',
+             'sector' => 'string',
          ]);
 
         //save data to db
@@ -90,7 +91,28 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        // dd($request->id);
+        $id = $request->id;
+        //validate request
+        $validation = $request->validate([
+             'name' => 'required|max:255',
+             'address' => 'required',
+             'email' => 'required|email',
+             'sector' => 'string',
+         ]);
+        // dd($validation);
+
+        //save data to db
+        $update = Company::where('id', $id)->update($validation);
+        // dd($request->all());
+        
+        //redirect to index with flash message
+        if ($update) {
+            return redirect()->route('companies.index')->with('success', 'Company detail successfully Edited');
+        }
+        else {
+            return redirect()->back()->with('error', 'Failed to edit Company detail');
+        }
     }
 
     /**
