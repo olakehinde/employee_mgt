@@ -30,6 +30,7 @@
 				<form method="post" action="{{ route('companies.update', $company->id) }}">
 					@csrf
 					@method('PATCH')
+					<input type="hidden" name="id" value="{{$company->id}}">
 					@include('companies.fields')
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save</button>
 				</form>
