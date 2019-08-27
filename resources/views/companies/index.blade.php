@@ -30,12 +30,16 @@
 					<td>{{ $company->email }}</td>
 					<td>{{ is_null($company->sector) ? 'Not available' : $company->sector }}</td>
 					<td>
-						<a href="#"><span class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</span>
+						<a href="#"><span class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> </span>
 						</a>
-						<a href="#"><span class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</span>
+						<a href="{{ route('companies.edit', $company->id)}}"><span class="btn btn-sm btn-success"><i class="fa fa-edit"></i> </span>
 						</a>
-						<a href="#"><span class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Delete</span>
-						</a>
+
+						<form action="{{ route('companies.destroy', $company->id)}}" method="post">
+		                  	@csrf
+		                  	@method('DELETE')
+		                  	<button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i> </button>
+		                </form>
 					</td>
 			    </tr>
 			    @endforeach
