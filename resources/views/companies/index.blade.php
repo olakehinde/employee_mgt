@@ -3,6 +3,15 @@
 @section('content')
 	<div class="container">
 		<div class="row mx-3">
+			@if(session()->has('success'))
+	            <div class="alert alert-success">
+	                {{ session()->get('success') }}
+	            </div>
+	            @elseif(session()->has('error'))
+	            <div class="alert alert-error">
+	                {{ session()->get('error') }}
+	            </div>
+	        @endif
 			<div class="col-sm-6 col-md-10 pull-left">
 				<h3>Company Records</h3>
 			</div>
