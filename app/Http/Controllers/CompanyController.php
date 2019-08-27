@@ -67,7 +67,16 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.show', compact('compnay'));
+        // $findcompany = Company::findOrFail($company->id); 
+        // dd($findcompany);
+        if ($company) {
+            try {
+                return view('companies.show', compact('company'));
+            } catch (Exception $e) {
+                return redirect()->back()->with('error', $e);
+            }
+        }
+        return redirect()->back()->with('error', 'Cannot find Company details');
     }
 
     /**
@@ -78,7 +87,6 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        $company = Company::findOrFail($company->id);
         return view('companies.edit', compact('company'));
     }
 

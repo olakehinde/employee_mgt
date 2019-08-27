@@ -39,7 +39,7 @@
 					<td>{{ $company->email }}</td>
 					<td>{{ is_null($company->sector) ? 'Not available' : $company->sector }}</td>
 					<td>
-						<a href="#"><span class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> </span>
+						<a href="{{ route('companies.show', $company->id)}}"><span class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> </span>
 						</a>
 						<a href="{{ route('companies.edit', $company->id)}}"><span class="btn btn-sm btn-success"><i class="fa fa-edit"></i> </span>
 						</a>
