@@ -66,7 +66,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.show');
+        return view('companies.show', compact('compnay'));
     }
 
     /**
@@ -77,7 +77,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        $company = Company::findOrFail($company->id);
+        return view('companies.edit', compact('company'));
     }
 
     /**
