@@ -30,6 +30,7 @@
 				<form method="post" action="{{ route('companies.store') }}">
 					@csrf
 					@include('companies.fields')
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Create</button>
 				</form>
 		  	</div>
 		</div>
