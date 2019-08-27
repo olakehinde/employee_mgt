@@ -1,17 +1,17 @@
 <div class="form-group">
   	<label for="name">Company Name:</label>
-  	<input type="text" required="" class="form-control" name="name"/>
+  	<input type="text" required="" class="form-control" name="name" value="{{$company->name}}"/>
 </div>
 <div class="form-group">
 	<label for="price">Address:</label>
-	<input type="text" required="" class="form-control" name="address"/>
+	<input type="text" required="" class="form-control" name="address" value="{{$company->name}}"/>
 </div>
 <div class="form-group">
 	<label for="quantity">Email:</label>
-	<input type="text" required="" class="form-control" name="email"/>
+	<input type="text" required="" class="form-control" name="email" value="{{$company->name}}"/>
 </div>
 <div class="form-group">
 	<label for="quantity">Sector <small>(optional)</small>:</label>
-	<input type="text" class="form-control" name="sector"/>
+	<input type="text" class="form-control" name="sector"  value="{{$company->sector}}"/>
 </div>
-<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Create Company</button>
+
