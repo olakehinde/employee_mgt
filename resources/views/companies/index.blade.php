@@ -19,7 +19,7 @@
 				<a href="{{ route('companies.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> New Company</a>
 			</div>
 		</div>
-		@if(!isset($companies))
+		@if(count($companies) < 1)
 			<div class="px-3 mx-3 py-3 card">
 				<h5>No Company created yet.</h5>
 			</div>
