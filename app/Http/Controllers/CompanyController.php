@@ -106,7 +106,7 @@ class CompanyController extends Controller
              'name' => 'required|max:255',
              'address' => 'required',
              'email' => 'required|email',
-             'sector' => 'string',
+             'sector' => 'string|nullable',
          ]);
         // dd($validation);
 
@@ -133,10 +133,12 @@ class CompanyController extends Controller
     {
         // dd($company);
         $deleted = $company->delete();
+        // dd($deleted);
         if ($deleted) {
-            return view('companies.index')->with('message', 'Company deleted Successfully');
+            return redirect('companies')->with('success', 'Company deleted Successfully');
         }
-        return redirect()->back()->with('error', 'Operation failed!!!');
-        
+        else {
+            return redirect()->back()->with('error', 'Operation failed!!!');
+        }
     }
 }
