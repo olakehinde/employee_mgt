@@ -14,7 +14,7 @@
         @endif
 		<div class="card mt-5">
 			<div class="card-header">
-				<i class="fa fa-plus"></i> New Company
+				<i class="fa fa-plus"></i> New Employee
 			</div>
 		  	<div class="card-body">
 			    @if ($errors->any())
@@ -25,10 +25,10 @@
 					</div><br />
 			    @endif
 				
-				<form method="post" action="{{ route('companies.store') }}">
+				<form method="post" action="{{ route('employees.store') }}">
 					@csrf
-					@include('companies.fields')
-					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Create</button>
+					@include('employees.fields')
+					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save</button>
 				</form>
 		  	</div>
 		</div>
