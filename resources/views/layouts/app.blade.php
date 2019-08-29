@@ -52,6 +52,12 @@
                                 </li>
                             @endif
                         @else
+                            <div class="py-2 nav-item">
+                                <a href="{{ route('companies.index') }}">Company</a>
+                            </div>
+                            <div class="py-2 px-4 nav-link">
+                                <a href="{{ route('employees.index') }}">Employees</a>
+                            </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
