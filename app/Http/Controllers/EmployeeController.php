@@ -16,7 +16,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-        return view('employees.index', compact($employees));
+        return view('employees.index', ['employees' => $employees]);
     }
 
     /**
@@ -37,7 +37,23 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $validation = $request->validate([
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'gender' => 'required',
+            'email' => 'required|email|unique:employees',
+            'company_id' => 'required',
+        ]);
+
+        // dd($validation);
+        $create = Employee::create($validation);
+        if ($create) {
+            return redirect()->route('employees.index')->with('success', 'Employee created successfully');
+        }
+        else {
+            return redirect()->back()->with('error', 'Something went wrong, try again');
+        }
     }
 
     /**
