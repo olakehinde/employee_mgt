@@ -40,15 +40,14 @@ class CompanyController extends Controller
 
         //validate request
         $validation = $request->validate([
-             'name' => 'required|max:255',
-             'address' => 'required',
-             'email' => 'required|email|unique:companies',
-             'sector' => 'string|nullable',
+            'name' => 'required|max:255',
+            'address' => 'required',
+            'email' => 'required|email|unique:companies',
+            'sector' => 'nullable|string',
          ]);
 
         //save data to db
         $company = Company::create($validation);
-        // dd($request->all());
         
         //redirect to index with flash message
         if ($company) {
