@@ -1,10 +1,10 @@
 <div class="form-group">
   	<label for="name">First Name:</label>
-  	<input type="text" required="" class="form-control" name="f_name" value="{{ isset($company->name) ? $company->name : null}}"/>
+  	<input type="text" required="" class="form-control" name="first_name" value="{{ isset($company->name) ? $company->name : null}}"/>
 </div>
 <div class="form-group">
   	<label for="name">Last Name:</label>
-  	<input type="text" required="" class="form-control" name="l_name" value="{{ isset($company->name) ? $company->name : null}}"/>
+  	<input type="text" required="" class="form-control" name="last_name" value="{{ isset($company->name) ? $company->name : null}}"/>
 </div>
 <div class="form-group row pl-3">
 	<label for="gender">Gender</label>
@@ -24,7 +24,7 @@
 </div>
 <div class="form-group">
 	<label for="company">Company</label>
-	<select class="form-control" name="company">
+	<select class="form-control" name="company_id">
 		<option class="" selected="selected" disabled="disabled">Select Company</option>
 		@foreach($companies as $company)
 			<option value="{{$company->id}}">{{$company->name}}</option>

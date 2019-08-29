@@ -30,7 +30,7 @@
 					<th scope="col">Name</th>
 					<th scope="col">Gender</th>
 					<th scope="col">Email</th>
-					<th scope="col">Company name</th>
+					<th scope="col">Company</th>
 					<th scope="col">Action</th>
 				</tr>
 			</thead>
