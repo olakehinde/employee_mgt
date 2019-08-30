@@ -19,9 +19,9 @@
 				<a href="{{ route('employees.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> New Employee</a>
 			</div>
 		</div>
-		@if(!isset($employees))
+		@if(count($employees) < 1)
 			<div class="px-3 mx-3 py-3 card">
-				<h5>No Employee created yet.</h5>
+				<h5>No Employee record created yet.</h5>
 			</div>
 		@else
 		<table class="table">

@@ -88,7 +88,21 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        //validate request
+        $validation = $request->validate([
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'gender' => 'required',
+            'email' => 'required|email',
+            'company_id' => 'required',
+        ]);
+        //update db record
+        $update = Employee::where('id', $request->id)->update($validation);
+        // redirect with message
+        if($update) {
+            return redirect()->route('employees.index')->with('success', 'Employee record updated successfully');
+        }
+        return redirect()->back()->with('error', "Oops...Something went wrong while trying to update record. Try again");
     }
 
     /**
@@ -99,6 +113,11 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $deleted = $employee->delete();
+
+        if ($deleted) {
+            return redirect()->route('employees.index')->with('success', 'Employee record deleted successfully');
+        }
+        return redirect()->back()->with('error', "Oops...Something went wrong while trying to delete record. Try again");
     }
 }
