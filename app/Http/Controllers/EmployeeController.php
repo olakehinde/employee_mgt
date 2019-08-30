@@ -64,7 +64,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('employees.show')->with('employee', $employee);
     }
 
     /**
@@ -75,7 +75,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        
     }
 
     /**
