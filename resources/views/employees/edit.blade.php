@@ -13,8 +13,8 @@
             </div>
         @endif
 		<div class="card mt-5">
-			<div class="card-header">
-				<i class="fa fa-edit"></i> Edit Company
+			<div class="card-header bg-primary">
+				<i class="fa fa-edit"></i> Edit Employee Detail
 			</div>
 		  	<div class="card-body">
 			    @if ($errors->any())
@@ -27,11 +27,11 @@
 					</div><br />
 			    @endif
 				
-				<form method="post" action="{{ route('companies.update', $company->id) }}">
+				<form method="post" action="{{ route('employees.update', $employee->id) }}">
 					@csrf
 					@method('PATCH')
-					<input type="hidden" name="id" value="{{$company->id}}">
-					@include('companies.fields')
+					<input type="hidden" name="id" value="{{$employee->id}}">
+					@include('employees.fields')
 					<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Save</button>
 				</form>
 		  	</div>
